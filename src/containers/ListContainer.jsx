@@ -70,46 +70,8 @@ export class ListContainer extends React.Component{
     };
     setMockedList = () =>{
         const { accountDetails , setCustomerList, selectedFilterVal} = this.props;
-        var list =  [
-            {
-                accountName: 'CRA Account Name 1',
-                currentBalance: 2000.23,
-                accountType: 'CRA',
-            },
-            {
-                accountName: 'CRA Account Name 2',
-                currentBalance: 1000.23,
-                accountType: 'CRA',
-            },
-            {
-                accountName: 'SAV Account Name 1',
-                currentBalance: 100000.23,
-                accountType: 'SAV',
-            },
-            {
-                accountName: 'Saving Account Name 2',
-                currentBalance: 200000.23,
-                accountType: 'SAV',
-            },
-            {
-                accountName: 'Home Loan  Account Name 1',
-                currentBalance: 600234.23,
-                accountType: 'LIS',
-            },
-            {
-                accountName: 'Home Loan Account Name 2',
-                currentBalance: 600234.23,
-                accountType: 'LIS',
-            },
-            {
-                accountName: 'Car Loan Account Name 3',
-                currentBalance: 600234.23,
-                accountType: 'LIS',
-            }
-        ];
-
-        if(!selectedFilterVal || accountDetails.length == 0)
-          setCustomerList(list);
+          if(!selectedFilterVal)
+          setCustomerList(accountDetails);
 
 
     }
@@ -125,7 +87,7 @@ export class ListContainer extends React.Component{
 
     render() {
         console.log(this.props);
-        const { accountDetails, selectedFilterVal, filteredList }= this.props;
+        const { accountDetails, selectedFilterVal, filteredList } = this.props;
         var list = !selectedFilterVal || selectedFilterVal === "All" ? accountDetails : filteredList;
         return (
             <List accountDetails={list}/>

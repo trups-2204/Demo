@@ -30,14 +30,13 @@ list-style-type: none;
 
 export const List =({
     accountDetails,
-    createNewAccountFn,
 
 })=>(
     
     <StyledList>
         <StyledUnOrderedList>
             { accountDetails && accountDetails.map(account => ( <li>
-        <StyledRow>
+        <StyledRow key ={account.accountNumber}>
 
             <StyledLeftColumn>
                 <h2>{account.accountName}</h2>
@@ -64,7 +63,6 @@ List.propTypes ={
         accountType: PropTypes.string,
         isStaffUser: PropTypes.bool
     })).isRequired,
-    createNewAccountFn: PropTypes.func.isRequired,
 };
 
 export default List;

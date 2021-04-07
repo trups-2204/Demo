@@ -3,7 +3,8 @@ import { createActions, handleActions} from 'redux-actions';
 export const actions = createActions({
   
     header:{
-        SET_LIST_FILTER: action => action,
+        SET_SEARCH_FILTER: action => action,
+        SET_SORT_FILTER: action => action,
     },
     customer:{
         DELETE_CUSTOMER: action => action,
@@ -19,13 +20,18 @@ export const reducer = handleActions(
           ...state,
           list: action.payload,
       }),
-      [actions.header.setListFilter]:(state,action) =>({
+      [actions.header.setSearchFilter]:(state,action) =>({
         ...state,
-        filter: action.payload,
+        searchfilter: action.payload,
+    }),
+    [actions.header.setSortFilter]:(state,action) =>({
+        ...state,
+        sortFilter: action.payload,
     })
   },
   {
       list:[],
-      filter: '',
+      searchfilter: '',
+      sortFilter: ''
   }
 );

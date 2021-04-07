@@ -30,7 +30,8 @@ const StyledLink = styled.nav`
 `;
 
 export const PageHeader = ({
-  onFilterSelect
+  onFilterSelect,
+  onSortSelect,
 }) =>
 (    <StyledLink>
 
@@ -52,8 +53,11 @@ export const PageHeader = ({
 
     <StyledSortCollectionPanel>
       <label>Sort by:</label>
-      <select>
-        <option value="/">Featured</option>
+      <select onClick={onSortSelect}>
+        <option value="">-- Select -- </option>
+        <option value="N"> Account Name</option>
+        <option value="T"> Account Type</option>
+
       </select>
     </StyledSortCollectionPanel>
 
@@ -64,5 +68,6 @@ export const PageHeader = ({
  );
 PageHeader.propTypes ={
   onFilterSelect: PropTypes.func.isRequired,
+  onSortSelect: PropTypes.func.isRequired,
 }
 export default PageHeader;

@@ -18,24 +18,33 @@ align-items: stretch;
 
     static propTypes ={
         children: PropTypes.node.isRequired,
-        setListFilter: PropTypes.func.isRequired,
+        setSearchFilter: PropTypes.func.isRequired,
+        setSortFilter: PropTypes.func.isRequired,
+
     };
 
     onFilterSelectAction = (event) =>{
         const filterValue = event.target.value;
         console.log('Filter is ****', filterValue);
         console.log(this.props);
-        const { setListFilter } = this.props;
-        setListFilter(filterValue);
+        const { setSearchFilter } = this.props;
+        setSearchFilter(filterValue);
 
     };
+    onSortSelectAction = (event) =>{
+        const filterValue = event.target.value;
+        console.log('Filter is ****', filterValue);
+        console.log(this.props);
+        const { setSortFilter } = this.props;
+        setSortFilter(filterValue);
 
+    };
     render(){
         const { children }= this.props;
      
         return(
             <StyledPanel>
-                <PageHeader onFilterSelect = {this.onFilterSelectAction} />
+                <PageHeader onFilterSelect = {this.onFilterSelectAction} onSortSelect = {this.onSortSelectAction} />
                 <>
                   {children}
                 </>
@@ -53,7 +62,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps ={
-    setListFilter: listActions.header.setListFilter
+    setSearchFilter: listActions.header.setSearchFilter,
+    setSortFilter: listActions.header.setSortFilter
 };
 
 const enhance = compose ( connect(mapStateToProps, mapDispatchToProps));

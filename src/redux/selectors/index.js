@@ -1,1 +1,1 @@
-export { getListFilterOptions} from './uiListSelector';
+export { getSearchFilterOptions} from './uiListSelector';

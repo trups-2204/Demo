@@ -1,9 +1,0 @@
-{
-    "endpoints":[
-        {
-            "endpoint_path": "customer/details",
-            "endpoint_type":"multi_data",
-            "request_selector": "customerId"
-        }
-    ]
-}

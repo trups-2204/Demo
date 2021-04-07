@@ -3,8 +3,8 @@ import { reducer as customerListReducer} from './modules/customerList.module';
 
 const rootReducer = combineReducers({
     ui: combineReducers({
-        customerList: customerListReducer,
-    })
+        customer: customerListReducer,
+    }),
 });
 
 export default rootReducer;

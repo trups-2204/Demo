@@ -1,5 +1,5 @@
 import React from 'react';
-import { MasterLayout} from './layout/MasterLayout';
+import MasterLayout from './layout/MasterLayout';
 import Routes from './routes';
 
 const App = ()=>
